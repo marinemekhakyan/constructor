@@ -1,6 +1,5 @@
 var Letter = require("./letter")
 
-
 function Word(currentWord) {
 
     this.letters = [];
@@ -23,13 +22,13 @@ function Word(currentWord) {
 
     }
 
-    this.start = function(){
+    this.start = function () {
         for (var i = 0; i < this.word.length; i++) {
 
             this.letters.push(new Letter(this.word[i]));
         }
     }
 
- }
+}
 
- module.exports = Word;
+module.exports = Word;
