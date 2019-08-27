@@ -11,9 +11,9 @@ function Letter(character) {
         }
     this.verify = function (userGuess) {
         if (userGuess === this.character) {
-            this.guessed === true;
+            this.guessed = true;
             return true;
         }
-    }
+    } 
 }
 module.exports = Letter;
