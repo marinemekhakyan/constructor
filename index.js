@@ -38,7 +38,22 @@ function askLetter() {
 
             if (display.indexOf("_") === -1) {
                 console.log("YOU WIN!");
-                wins++;
+                const confirm = require('inquirer-confirm')
+                confirm({
+                    question: 'Would you like to play again?', 
+                    
+                    default: true
+                }).then(function(confirmed, cancelled) {
+                            if (confirmed) {
+                                reset();
+                                newGame();
+                            }
+                            else if (cancelled) {
+                                clear();
+                            }
+
+                        });
+                    wins++;
                 console.log(wins);
             }
             else {
@@ -53,7 +68,7 @@ function askLetter() {
                 losses++;
                 console.log(losses)
                 console.log("Sorry! You have no remaining guesses left. Try again!");
-                gameOver();
+                reset();
             }
             else {
                 console.log(newGame.display());
@@ -62,14 +77,23 @@ function askLetter() {
         }
     });
 }
-function gameOver() {
-
-
+var reset = function () {
+    guessed = [];
+    remainingGuesses = 10;
 }
+
+var clear = function () {
+    wins = 0;
+    losses = 0;
+    guessed = [];
+    remainingGuesses = 10;
+}
+
+
 
 askLetter()
 
 //update display
 //update scores
-// allow restart asking y or n and if y reset scores / generate word, etc
-// control letter repetition, display guessed letters for the user 
+//allow restart asking y or n and if y reset remaining guesses and guessed letters
+//control letter repetition, display guessed letters for the user 
