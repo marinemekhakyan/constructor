@@ -10,11 +10,12 @@ var guessed = [];
 var remainingGuesses = 10;
 
 var newGame = new Word(randomWord);
-console.log(newGame);
+// console.log(newGame);
 
 newGame.start();
 console.log(newGame.display());
-console.log(newGame);
+console.log("><><><><><><><><><><><><><><><")
+// console.log(newGame);
 
 function askLetter() {
     inquirer.prompt([
@@ -31,42 +32,30 @@ function askLetter() {
 
             let display = newGame.display();
             console.log(display)
-            console.log("clicked letters: ", guessed)
-            // if the guessed array include the sme letter do nothing ask for new letter
-
+            console.log("Guessed letters: ", guessed)
+            console.log("_________________________________")
             console.log("CORRECT!");
 
             if (display.indexOf("_") === -1) {
                 console.log("YOU WIN!");
-                const confirm = require('inquirer-confirm')
-                confirm({
-                    question: 'Would you like to play again?', 
-                    
-                    default: true
-                }).then(function(confirmed, cancelled) {
-                            if (confirmed) {
-                                reset();
-                                newGame();
-                            }
-                            else if (cancelled) {
-                                clear();
-                            }
-
-                        });
-                    wins++;
-                console.log(wins);
+                wins++;
+                console.log("Wins: " + wins);
+                console.log("Losses: " + losses);
+                
             }
             else {
-                //console.log(message + guessedLetter);
                 askLetter();
             }
         }
         else {
+            console.log("Guessed letters: " + guessed);
+            console.log("___________________________________")
             console.log("INCORRECT!");
             remainingGuesses--;
+            
             if (remainingGuesses === 0) {
                 losses++;
-                console.log(losses)
+                console.log("Losses: " + losses)
                 console.log("Sorry! You have no remaining guesses left. Try again!");
                 reset();
             }
@@ -77,19 +66,6 @@ function askLetter() {
         }
     });
 }
-var reset = function () {
-    guessed = [];
-    remainingGuesses = 10;
-}
-
-var clear = function () {
-    wins = 0;
-    losses = 0;
-    guessed = [];
-    remainingGuesses = 10;
-}
-
-
 
 askLetter()
 

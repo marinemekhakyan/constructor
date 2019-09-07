@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "inquirer": "^7.0.0",
+    "inquirer-confirm": "^2.0.7",
     "random-words": "^1.1.0"
   },
   "devDependencies": {},
