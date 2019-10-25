@@ -9,4 +9,4 @@ Run the app in the command line and start guessing!
 
 ![](https://github.com/marinemekhakyan/constructor/blob/master/screenshot.gif?raw=true)
 
-Link to portfolio https://marinemekhakyan.github.io/i-portfolio/work.html
+Link to portfolio https://marinemekhakyan.github.io/i-portfolio/work-2.html
